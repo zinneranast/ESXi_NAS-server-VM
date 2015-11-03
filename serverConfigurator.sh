@@ -6,6 +6,7 @@ serviceName=$3
 vmName=$4
 portGroup=$5
 ipAddress=$6
+username=$7
 
 ip netns | grep -o "[0-9]\+" | sort > tmp
 i=1
@@ -22,10 +23,10 @@ ns=ns$i
 veth=SS$i
 
 if [ -f /home/vmB/srv-configs/services.list ]; then
-  echo $serviceName $portGroup $vmName $ipAddress $vxlanIp $ns >> /home/vmB/srv-configs/services.list
+  echo $serviceName $portGroup $vmName $ipAddress $vxlanIp $ns $username >> /home/vmB/srv-configs/services.list
 else
-  echo "Service Name Source Port Group Source Virtual Machine Name Source IP Address Destination IP Address Namespace" > /home/vmB/srv-configs/services.list
-  echo $serviceName $portGroup $vmName $ipAddress $vxlanIp $ns >> /home/vmB/srv-configs/services.list
+  echo "Service Name Source Port Group Source Virtual Machine Name Source IP Address Destination IP Address Namespace Username" > /home/vmB/srv-configs/services.list
+  echo $serviceName $portGroup $vmName $ipAddress $vxlanIp $ns $username >> /home/vmB/srv-configs/services.list
 fi
 
 ip netns add $ns
