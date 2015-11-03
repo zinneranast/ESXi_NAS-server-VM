@@ -1,0 +1,2 @@
+Service Name Source Port Group Source Virtual Machine Name Source IP Address Destination IP Address Namespace
+FTP userPortGroup VM1 192.168.10.14 192.168.10.15 ns2
